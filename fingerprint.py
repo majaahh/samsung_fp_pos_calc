@@ -46,7 +46,7 @@ def main():
             "Get values with:\n"
             "  position : adb shell cat /sys/class/fingerprint/fingerprint/position\n"
             "  size     : adb shell wm size\n"
-            "  ydpi     : adb shell dumpsys display grep 'density '\n"
+            "  ydpi     : adb shell dumpsys display | sed -n 's/.*density \\([0-9][0-9]*, [0-9.][0-9.]* x [0-9.][0-9.]* dpi\\).*/\\1/p'\n"
         ),
         formatter_class=argparse.RawTextHelpFormatter,
     )
